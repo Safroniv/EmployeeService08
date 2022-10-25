@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Proto2\employee.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.49.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.50.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pulumi.Protobuf" Version="3.20.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="..\EmployeeService\Proto\employee.proto">
+      <Link>employee.proto</Link>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Proto2\employee.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+</Project>
